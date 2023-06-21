@@ -1,0 +1,22 @@
+[
+    {
+     "img":
+        "//public/menCategories/Pantes.png",
+     "categoryBtnText": "SHOPE PANTES"
+    },
+    {
+     "img":
+        "//public/menCategories/Shorts.png",
+     "categoryBtnText": "SHOPE SHORTS"
+    },
+    {
+     "img":
+        "//public/menCategories/Shoes.png",
+     "categoryBtnText": "SHOPE SHOES"
+    },
+    {
+     "img":
+        "//public/menCategories/Tess.png",
+     "categoryBtnText": "SHOPE TESS"
+    }
+  ]
