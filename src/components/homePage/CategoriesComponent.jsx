@@ -1,43 +1,33 @@
-import { CardMedia, Button, Box } from "@mui/material";
-// import MenCategoriesComponent from "// src/initialData/MenCategoriesComponent.json";
+import { CardMedia, Button, Box, Grid } from "@mui/material";
+import MenCategories from "../../initialData/MenCategories.json";
 
 const CategoriesComponent = () => {
   return (
-    // <Card
-    //   sx={{
-    //     display: "flex",
-    //     flexDirection: "column",
-    //     alignItems: "center",
-    //     // maxWidth: 300,
-    //     boxShadow: 2,
-    //     bgcolor: "yellow",
-    //   }}
-    // >
-    // {MenCategoriesComponent.map((categorie)=>(
-    <Box>
-      <CardMedia
-        component="img"
-        sx={{
-          width: "100%",
-          height: 0,
-          paddingTop: "100%",
-          // bgcolor: "red",
-          // 1:1 aspect ratio (adjust as needed)
-        }}
-        image="path/to/your/image.jpg "
-      />
-      <Button
-        sx={{
-          width: "50%",
-          marginTop: 2,
-        }}
-        variant="contained"
-        color="primary"
-      >
-        Button
-      </Button>
-      {/* // </Card> */}
-    </Box>
+    <Grid item xs={3} sx={{ marginTop: 10 }}>
+      {MenCategories.map((category) => (
+        <Box key={category.img}>
+          <CardMedia
+            component="img"
+            sx={{
+              width: "100%",
+              height: 0,
+              paddingTop: "100%",
+            }}
+            image={category.img}
+          />
+          <Button
+            sx={{
+              width: "50%",
+              marginTop: 2,
+            }}
+            variant="contained"
+            color="primary"
+          >
+            {category.Button}
+          </Button>
+        </Box>
+      ))}
+    </Grid>
   );
 };
 

@@ -24,10 +24,8 @@ const HomePage = () => {
             }
           />
         </Grid>
-        {/* CategoriesComponent */}
-        <Grid item xs={3} sx={{ marginTop: 10 }}>
-          <CategoriesComponent />
-        </Grid>
+        {/* CategoriesComponent Grid */}
+        <CategoriesComponent />
       </Grid>
       {/* Slider */}
       <SliderComponent slides={sliderItems} />
