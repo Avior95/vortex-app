@@ -8,7 +8,7 @@ const SliderComponent = ({ slides }) => {
         <SwiperSlide key={slide.id}>
           <img
             style={{ backgroundColor: "yellow", width: "100%" }}
-            src={slide.img}
+            src={slide.URL}
             alt={slide.title}
           />
         </SwiperSlide>

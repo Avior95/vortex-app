@@ -16,7 +16,7 @@ const MainImageComponent = ({ imageUrl }) => {
     >
       <img src={imageUrl} alt="Responsive" style={{ width: "100%" }} />
 
-      <Box
+      {/* <Box
         sx={{
           position: "absolute",
           textAlign: "center",
@@ -57,7 +57,7 @@ const MainImageComponent = ({ imageUrl }) => {
           <MainButtonComponent text={"SHOP MAN"} />
           <MainButtonComponent text={"SHOP WOMAN"} />
         </div>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

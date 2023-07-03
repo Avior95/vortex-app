@@ -5,6 +5,7 @@ import SliderComponent from "../components/Sliders/SliderComponent";
 import sliderItems from "../components/Sliders/slider.json";
 import Typography from "@mui/material/Typography";
 import InformativeLogosData from "../initialData/LogosData.json";
+import MenCategories from "../initialData/MenCategories.json";
 
 const HomePage = () => {
   return (
@@ -15,7 +16,7 @@ const HomePage = () => {
         width: "100%",
       }}
     >
-      <Grid container sx={{ border: 3 }}>
+      <Grid container>
         {/* Main Image */}
         <Grid item xs={12}>
           <MainImageComponent
@@ -24,13 +25,21 @@ const HomePage = () => {
             }
           />
         </Grid>
-        {/* CategoriesComponent Grid */}
-        <CategoriesComponent />
       </Grid>
+
+      {/* CategoriesComponent Grid */}
+      <Grid container sx={{ marginTop: 8, marginBottom: 8 }}>
+        {MenCategories.map((category) => (
+          <Grid item xs={3} key={category.URL}>
+            <CategoriesComponent {...category} />
+          </Grid>
+        ))}
+      </Grid>
+
       {/* Slider */}
       <SliderComponent slides={sliderItems} />
       {/* Informative Logos */}
-      <Grid container spacing={{ xs: 4, md: 3 }} sx={{ marginTop: 10 }}>
+      <Grid container spacing={{ xs: 4, md: 3 }} sx={{ marginTop: 30 }}>
         {InformativeLogosData.map((logo) => (
           <Grid
             item

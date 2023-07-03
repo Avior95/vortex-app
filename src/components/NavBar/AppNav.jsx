@@ -1,35 +1,40 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
+import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
+import { Link } from "react-router-dom";
+import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import DrawerListComponent from "./DrawerListComponent";
+import { Box, Button } from "@mui/material";
+import { Main, AppBar, DrawerHeader } from "../componentsStyled/NavStyled";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
+//  PersonOutlineIcon imports
 import Menu from "@mui/material/Menu";
-import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import ROUTES from "../../routes/ROUTES";
-import NavLinkComponent from "./NavLinkComponent";
 
-// const pages = ["Women", "Men", "About"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const drawerWidth = 240;
+const settings = ["Login", "Sign Up"];
 
-const pages = [
-  {
-    label: "Home",
-    url: ROUTES.HOME,
-  },
-  {
-    label: "about",
-    url: ROUTES.ABOUT,
-  },
-];
-
-const AppNav = () => {
+const PersistentDrawerLeft = () => {
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -40,42 +45,46 @@ const AppNav = () => {
   return (
     <AppBar
       position="fixed"
+      open={open}
       sx={{
         backgroundColor: "white",
         zIndex: 100,
         height: 56,
       }}
     >
-      <Container maxWidth="xl">
-        <Toolbar>
+      <Toolbar>
+        {/* Drawer icon */}
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          sx={{ mr: 2, ...(open && { display: "none" }) }}
+        >
+          <MenuIcon sx={{ color: "black" }} />
+        </IconButton>
+
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Typography
-            variant="h6"
-            noWrap
-            sx={{ display: { xs: "none", md: "inline" } }}
-          ></Typography>
-          {/* main navbar */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <NavLinkComponent key={page.url} {...page} />
-            ))}
-          </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          ></Typography>
-          {/* SearchIcon */}
+            variant="body1"
+            component="h1"
+            color="initial"
+            fontWeight={700}
+            fontSize={"1rem"}
+          >
+            EVERLANE
+          </Typography>
+        </Link>
+        {/* SearchIcon */}
+        <Box sx={{ flexGrow: 1 }} />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            ml: 2,
+          }}
+        >
           <IconButton
             color="inherit"
             aria-label="search"
@@ -84,19 +93,27 @@ const AppNav = () => {
           >
             <SearchIcon />
           </IconButton>
-          {/* PersonOutlineIcon */}
+          {/* ShoppingCartIcon*/}
+          <IconButton
+            color="inherit"
+            aria-label="search"
+            edge="start"
+            sx={{ mr: 2, color: "black", display: { xs: "flex", md: "block" } }}
+          >
+            <ShoppingCartIcon />
+          </IconButton>
+          {/* PersonOutlineIcon Box */}
+
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton
-                color="inherit"
-                aria-label="search"
-                edge="start"
-                sx={{ color: "black" }}
-                onClick={handleOpenUserMenu}
-              >
-                <PersonOutlineIcon sx={{ p: 0 }}></PersonOutlineIcon>
-              </IconButton>
-            </Tooltip>
+            <IconButton
+              color="inherit"
+              aria-label="search"
+              edge="start"
+              sx={{ color: "black" }}
+              onClick={handleOpenUserMenu}
+            >
+              <PersonOutlineIcon sx={{ p: 0 }}></PersonOutlineIcon>
+            </IconButton>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -120,12 +137,57 @@ const AppNav = () => {
               ))}
             </Menu>
           </Box>
+        </Box>
+      </Toolbar>
 
-          {/* hamburger with menu */}
-        </Toolbar>
-      </Container>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <DrawerListComponent />
+        <Divider />
+        <Box style={{ display: "flex", justifyContent: "space-between" }}>
+          {["Login", "Sign Up"].map((text) => (
+            <Button
+              sx={{
+                width: "50%",
+                marginTop: 2,
+                borderRadius: 2,
+                backgroundColor: "#4d4d4d",
+              }}
+              variant="contained"
+              color="primary"
+              key={text}
+            >
+              {text}
+            </Button>
+          ))}
+        </Box>
+      </Drawer>
+      <Main open={open}>
+        <DrawerHeader />
+      </Main>
     </AppBar>
   );
 };
 
-export default AppNav;
+export default PersistentDrawerLeft;
