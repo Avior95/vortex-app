@@ -19,6 +19,7 @@ import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import ROUTES from "../../routes/ROUTES";
 
 const drawerWidth = 240;
 const settings = ["Login", "Sign Up"];
@@ -64,7 +65,7 @@ const PersistentDrawerLeft = () => {
           <MenuIcon sx={{ color: "black" }} />
         </IconButton>
 
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to={ROUTES.HOME} style={{ textDecoration: "none" }}>
           <Typography
             variant="body1"
             component="h1"

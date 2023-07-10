@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
-import MainImageComponent from "../components/homePage/MainImageComponet";
-import CategoriesComponent from "../components/homePage/CategoriesComponent";
+import MainImageComponent from "../components/HomePage/MainImageComponent";
+import ProductBtnComponent from "../components/HomePage/ProductBtnComponent";
 import SliderComponent from "../components/Sliders/SliderComponent";
 import sliderItems from "../components/Sliders/slider.json";
 import Typography from "@mui/material/Typography";
@@ -27,17 +27,18 @@ const HomePage = () => {
         </Grid>
       </Grid>
 
-      {/* CategoriesComponent Grid */}
+      {/* ProductBtnComponent Grid */}
       <Grid container sx={{ marginTop: 8, marginBottom: 8 }}>
         {MenCategories.map((category) => (
-          <Grid item xs={3} key={category.URL}>
-            <CategoriesComponent {...category} />
+          <Grid item xs={3} md={3} key={category.URL}>
+            <ProductBtnComponent {...category} />
           </Grid>
         ))}
       </Grid>
 
       {/* Slider */}
       <SliderComponent slides={sliderItems} />
+
       {/* Informative Logos */}
       <Grid container spacing={{ xs: 4, md: 3 }} sx={{ marginTop: 30 }}>
         {InformativeLogosData.map((logo) => (

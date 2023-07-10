@@ -7,7 +7,8 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import { Box } from "@mui/material";
-// import ROUTES from "../../routes/ROUTES";
+import ROUTES from "../../routes/ROUTES";
+import { NavLink } from "react-router-dom";
 
 const DrawerListComponent = () => {
   const [openList, setOpenList] = React.useState(true);
@@ -18,15 +19,19 @@ const DrawerListComponent = () => {
   const apparelCategoriesLinks = [
     {
       label: "Pants",
+      url: ROUTES.Apparel,
     },
     {
       label: "Shoes",
+      url: ROUTES.Apparel,
     },
     {
       label: "Shorts",
+      url: ROUTES.Apparel,
     },
     {
       label: "Tess",
+      url: ROUTES.Apparel,
     },
   ];
   return (
@@ -52,15 +57,17 @@ const DrawerListComponent = () => {
           <ListItemText primary={"Apparel"} />
           {openList ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
-        {apparelCategoriesLinks.map((Link) => (
-          <Collapse in={openList} timeout="auto" unmountOnExit key={Link.label}>
-            <List component="div" disablePadding>
+        <Collapse in={openList} timeout="auto" unmountOnExit>
+          {apparelCategoriesLinks.map((Link) => (
+            <List component="div" disablePadding key={Link.label}>
               <ListItemButton sx={{ pl: 4 }}>
-                <ListItemText primary={Link.label} />
+                <NavLink to={Link.url}>
+                  <ListItemText primary={Link.label} />
+                </NavLink>
               </ListItemButton>
             </List>
-          </Collapse>
-        ))}
+          ))}
+        </Collapse>
       </List>
       <List>
         <ListItemButton>
