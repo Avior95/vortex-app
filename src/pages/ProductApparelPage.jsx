@@ -8,7 +8,7 @@ const ProductApparelPage = () => {
       container
       justifyContent="center"
       alignItems="center"
-      style={{ minHeight: "100vh" }}
+      // style={{ minHeight: "100vh" }}
     >
       {ApparelItems.map((item) => (
         <Grid item xs={11} sm={4} md={2} key={item.id}>

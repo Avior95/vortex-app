@@ -16,13 +16,20 @@ const CardApparelComponent = ({ URL, title, itemColor, price }) => {
         <CardActionArea>
           <CardMedia component="img" image={URL} />
         </CardActionArea>
-        <CardHeader title={title} subheader={itemColor}></CardHeader>
+        <CardHeader
+          title={
+            <Typography variant="h6" sx={{ fontSize: "1rem" }}>
+              {title}
+            </Typography>
+          }
+          subheader={itemColor}
+        ></CardHeader>
         <CardContent>
           <Typography>{price}</Typography>
         </CardContent>
         <CardActions>
           <Button variant="text" color="primary">
-            Buy now
+            Add to cart
           </Button>
         </CardActions>
       </Card>

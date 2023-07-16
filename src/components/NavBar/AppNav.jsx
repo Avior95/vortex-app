@@ -2,32 +2,35 @@ import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DrawerListComponent from "./DrawerListComponent";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Dialog } from "@mui/material";
 import { Main, AppBar, DrawerHeader } from "../componentsStyled/NavStyled";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
-//  PersonOutlineIcon imports
-import Menu from "@mui/material/Menu";
 import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ROUTES from "../../routes/ROUTES";
+import { useState } from "react";
+import SignInPage from "../../pages/SignInPage";
+import SignUpPage from "../../pages/SignUpPage";
 
 const drawerWidth = 240;
-const settings = ["Login", "Sign Up"];
+
+const pages = [
+  { label: "Sign In", component: SignInPage },
+  { label: "Sign Up", component: SignUpPage },
+];
 
 const PersistentDrawerLeft = () => {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [open, setOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedPage, setSelectedPage] = useState(null);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -36,11 +39,12 @@ const PersistentDrawerLeft = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
   };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleButtonClick = (page) => {
+    setSelectedPage(page);
+    setDialogOpen(true);
   };
 
   return (
@@ -103,41 +107,6 @@ const PersistentDrawerLeft = () => {
           >
             <ShoppingCartIcon />
           </IconButton>
-          {/* PersonOutlineIcon Box */}
-
-          <Box sx={{ flexGrow: 0 }}>
-            <IconButton
-              color="inherit"
-              aria-label="search"
-              edge="start"
-              sx={{ color: "black" }}
-              onClick={handleOpenUserMenu}
-            >
-              <PersonOutlineIcon sx={{ p: 0 }}></PersonOutlineIcon>
-            </IconButton>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
         </Box>
       </Toolbar>
 
@@ -167,7 +136,7 @@ const PersistentDrawerLeft = () => {
         <DrawerListComponent />
         <Divider />
         <Box style={{ display: "flex", justifyContent: "space-between" }}>
-          {["Login", "Sign Up"].map((text) => (
+          {pages.map((page) => (
             <Button
               sx={{
                 width: "50%",
@@ -177,12 +146,16 @@ const PersistentDrawerLeft = () => {
               }}
               variant="contained"
               color="primary"
-              key={text}
+              key={page.label}
+              onClick={() => handleButtonClick(page)}
             >
-              {text}
+              {page.label}
             </Button>
           ))}
         </Box>
+        <Dialog open={dialogOpen} onClose={handleDialogClose}>
+          {selectedPage && <selectedPage.component />}
+        </Dialog>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
