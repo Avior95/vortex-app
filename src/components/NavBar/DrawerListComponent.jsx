@@ -16,22 +16,22 @@ const DrawerListComponent = () => {
   const handleClick = () => {
     setOpenList(!openList);
   };
-  const apparelCategoriesLinks = [
+  const ItemCategoriesLinks = [
     {
       label: "Pants",
-      url: ROUTES.Apparel,
+      url: ROUTES.ITEMPAGE,
     },
     {
       label: "Shoes",
-      url: ROUTES.Apparel,
+      url: ROUTES.ITEMPAGE,
     },
     {
       label: "Shorts",
-      url: ROUTES.Apparel,
+      url: ROUTES.ITEMPAGE,
     },
     {
       label: "Tess",
-      url: ROUTES.Apparel,
+      url: ROUTES.ITEMPAGE,
     },
   ];
   return (
@@ -58,7 +58,7 @@ const DrawerListComponent = () => {
           {openList ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={openList} timeout="auto" unmountOnExit>
-          {apparelCategoriesLinks.map((Link) => (
+          {ItemCategoriesLinks.map((Link) => (
             <List component="div" disablePadding key={Link.label}>
               <ListItemButton sx={{ pl: 4 }}>
                 <NavLink to={Link.url}>

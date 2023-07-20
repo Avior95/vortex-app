@@ -3,7 +3,7 @@ const ROUTES = {
   ABOUT: "/about",
   SIGNUP: "/signUp",
   SIGNIN: "/signIn",
-  Apparel: "/Apparel",
+  ITEMPAGE: "/itemPage",
 };
 
 export default ROUTES;

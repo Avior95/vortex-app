@@ -9,7 +9,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
-const CardApparelComponent = ({ URL, title, itemColor, price }) => {
+const ItemPageComponent = ({ URL, title, itemColor, price }) => {
   return (
     <Box>
       <Card square raised>
@@ -37,4 +37,4 @@ const CardApparelComponent = ({ URL, title, itemColor, price }) => {
   );
 };
 
-export default CardApparelComponent;
+export default ItemPageComponent;

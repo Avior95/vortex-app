@@ -8,7 +8,7 @@ const ProductBtnComponent = ({ URL, ProductBtnText }) => {
   const navigate = useNavigate();
 
   const handleProductBtnClick = () => {
-    navigate(ROUTES.Apparel);
+    navigate(ROUTES.ITEMPAGE);
   };
 
   return (
