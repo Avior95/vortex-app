@@ -15,24 +15,32 @@ import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
 import ROUTES from "../../routes/ROUTES";
 import { useState } from "react";
-import SignInPage from "../../pages/SignInPage";
-import SignUpPage from "../../pages/SignUpPage";
+import LoginPage from "../../pages/LoginPage";
+import RegisterPage from "../../pages/RegisterPage";
 import { AddShoppingCart } from "@mui/icons-material";
 import CartComponent from "../Cart/CartItemsComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../store/auth";
 
 const drawerWidth = 240;
 
 const pages = [
-  { label: "Sign In", component: SignInPage },
-  { label: "Sign Up", component: SignUpPage },
+  { label: "Sign In", component: LoginPage },
+  { label: "Sign Up", component: RegisterPage },
 ];
 
+const authedPages = [{ label: "Sign Out" }];
+
 const PersistentDrawerLeft = () => {
+  const isLoggedIn = useSelector(
+    (bigPieBigState) => bigPieBigState.authSlice.isLoggedIn
+  );
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedPage, setSelectedPage] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -50,6 +58,10 @@ const PersistentDrawerLeft = () => {
   };
   const closeCart = () => {
     setCartOpen(false);
+  };
+  const logoutClick = () => {
+    localStorage.clear();
+    dispatch(authActions.logout());
   };
 
   return (
@@ -143,7 +155,7 @@ const PersistentDrawerLeft = () => {
         <DrawerListComponent />
         <Divider />
         <Box style={{ display: "flex", justifyContent: "space-between" }}>
-          {pages.map((page) => (
+          {/* {pages.map((page) => (
             <Button
               sx={{
                 width: "50%",
@@ -158,7 +170,40 @@ const PersistentDrawerLeft = () => {
             >
               {page.label}
             </Button>
-          ))}
+          ))} */}
+          {!isLoggedIn
+            ? pages.map((page) => (
+                <Button
+                  sx={{
+                    width: "50%",
+                    marginTop: 2,
+                    borderRadius: 2,
+                    backgroundColor: "#4d4d4d",
+                  }}
+                  variant="contained"
+                  color="primary"
+                  key={page.label}
+                  onClick={() => handleButtonClick(page)}
+                >
+                  {page.label}
+                </Button>
+              ))
+            : authedPages.map((page) => (
+                <Button
+                  sx={{
+                    width: "100%",
+                    marginTop: 2,
+                    borderRadius: 2,
+                    backgroundColor: "#4d4d4d",
+                  }}
+                  variant="contained"
+                  color="primary"
+                  key={page.label}
+                  onClick={() => logoutClick()}
+                >
+                  {page.label}
+                </Button>
+              ))}
         </Box>
         <Dialog open={dialogOpen} onClose={handleDialogClose}>
           {selectedPage && <selectedPage.component />}

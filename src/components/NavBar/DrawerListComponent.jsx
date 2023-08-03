@@ -61,7 +61,10 @@ const DrawerListComponent = () => {
           {ItemCategoriesLinks.map((Link) => (
             <List component="div" disablePadding key={Link.label}>
               <ListItemButton sx={{ pl: 4 }}>
-                <NavLink to={Link.url}>
+                <NavLink
+                  to={Link.url}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <ListItemText primary={Link.label} />
                 </NavLink>
               </ListItemButton>
@@ -71,7 +74,12 @@ const DrawerListComponent = () => {
       </List>
       <List>
         <ListItemButton>
-          <ListItemText primary={"About"} />
+          <NavLink
+            to={ROUTES.ABOUT}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItemText primary={"About"} />
+          </NavLink>
         </ListItemButton>
         <ListItemButton>
           <ListItemText primary={"Help Center"} />

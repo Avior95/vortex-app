@@ -1,4 +1,5 @@
 import { Box, Button } from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 const cartItemStyle = {
   display: "flex",
@@ -16,9 +17,14 @@ const informationStyle = {
 const buttonsStyle = {
   display: "flex",
   justifyContent: "space-between",
+  alignItems: "center",
+  backgroundColor: "#f2f2f2",
+  borderRadius: "5px",
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
 };
 const imageStyle = {
   maxWidth: "80px",
+  height: "50%",
   objectFit: "cover",
   marginLeft: "40px",
 };
@@ -27,13 +33,14 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
   return (
     <Box style={cartItemStyle}>
       <div>
-        <h3>{item.title}</h3>
+        <h4>{item.title}</h4>
         <div style={informationStyle}>
-          <p>Price: ${item.price}</p>
-          <p>Total: ${(item.amount * item.price).toFixed(2)}</p>
+          <h5>Price: ${item.price}</h5>
+          <h5>Total: ${(item.amount * item.price).toFixed(2)}</h5>
         </div>
         <div style={buttonsStyle}>
           <Button
+            sx={{ bgcolor: "#262626" }}
             size="small"
             disableElevation
             variant="contained"
@@ -43,6 +50,7 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
           </Button>
           <p>{item.amount}</p>
           <Button
+            sx={{ bgcolor: "#262626" }}
             size="small"
             disableElevation
             variant="contained"
@@ -52,7 +60,6 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
           </Button>
         </div>
       </div>
-      {/* Fix the img prop bug */}
       <img
         style={imageStyle}
         src={
@@ -60,6 +67,7 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
         }
         alt={item.title}
       />
+      <DeleteOutlineIcon />
     </Box>
   );
 };

@@ -13,7 +13,7 @@ const HomePage = () => {
       sx={{
         // backgroundColor: "blue",
         marginTop: 5,
-        width: "100%",
+        // width: "100%",
       }}
     >
       <Grid container>

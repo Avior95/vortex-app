@@ -8,14 +8,14 @@ const cartItems = [
     URL: "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/c5382c5b_de85.png",
     title: "The Linen Short-Sleeve Standard Fit Shirt",
     itemColor: "Brazilian Sand",
-    price: "₪28",
+    price: "28",
   },
   {
     id: 2,
     URL: "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/c5382c5b_de85.png",
     title: "The Linen Short-Sleeve Standard Fit Shirt",
     itemColor: "Brazilian Sand",
-    price: "₪28",
+    price: "28",
   },
 ];
 const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
