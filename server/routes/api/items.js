@@ -26,13 +26,14 @@ router.get("items/:id", async (req, res) => {
 
 router.post(
   "/",
-  authmw,
-  permissionsMiddleware(true, false, false),
+  // authmw,
+  // permissionsMiddleware(true, false, false),
   async (req, res) => {
     try {
       await itemsValidationService.createItemValidation(req.body);
       // normalizeItem///
-      //   const dataFromMongoose = await itemsServiceModel.createItem(normalItem);
+      // const dataFromMongoose = await itemsServiceModel.createItem(normalItem);
+      const dataFromMongoose = await itemsServiceModel.createItem(req.body);
       console.log("dataFromMongoose", dataFromMongoose);
       res.json({ msg: "ok" });
     } catch (err) {

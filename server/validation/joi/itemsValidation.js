@@ -4,6 +4,7 @@ const createItemSchema = Joi.object({
   title: Joi.string().min(2).max(256).required(),
   subTitle: Joi.string().min(2).max(256).required(),
   gender: Joi.string().min(2).max(256).required(),
+  category: Joi.string().min(2).max(256).required(),
   price: Joi.number().min(2).required(),
   image: Joi.object().keys({
     url: Joi.string().regex(

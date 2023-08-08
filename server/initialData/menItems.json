@@ -1,0 +1,194 @@
+[
+    {
+    "title": "The Pull-On Performance Chino Short",
+    "subTitle": "Blue",
+    "price": 278,
+    "category": "Short",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_250:312,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/fb2727d0_2529.png",
+         "alt": "Chino Short"
+    }
+  
+  },
+{
+    "title": "The Slim Fit Performance Chino Short",
+    "subTitle": "Black",
+    "price": 178,
+    "category": "Short",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_250:312,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/5dff4c22_ca87.png",
+         "alt": "Chino Short"
+    }
+  
+  },
+{
+    "title": "The Pull-On Performance Chino Short",
+    "subTitle": "Blue",
+    "price": 175,
+    "category": "Short",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_250:312,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/fb2727d0_2529.png",
+         "alt": "Chino Short"
+    }
+  
+  },
+{
+    "title": "The Linen Easy Short",
+    "subTitle": "Toasted Coconut",
+    "price": 134,
+    "category": "Short",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_250:312,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/550221f2_1626.png",
+         "alt": "Linen Easy"
+    }
+  
+  },
+{
+    "title": "The Premium-Weight Crew",
+    "subTitle": "Black",
+    "price": 167,
+    "category": "Tees",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_250:312,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/d574ba57_c0c9.png",
+         "alt": "Crew Easy"
+    }
+  
+  },
+{
+    "title": "The Premium-Weight Pocket Tee ",
+    "subTitle": "Toasted Coconut",
+    "price": 167,
+    "category": "Tees",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/bc7cf406_aef1.png",
+         "alt": "Pocket Tee"
+    }
+  
+  },
+{
+    "title": "The Organic Cotton Crew",
+    "subTitle": "white",
+    "price": 111,
+    "category": "Tees",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/78b5ac4e_4ffa.png",
+         "alt": "Cotton Easy"
+    }
+  
+  },
+{
+    "title": "The Premium-Weight Relaxed Crew",
+    "subTitle": "Yellow",
+    "price": 167,
+    "category": "Tees",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/90cd10c3_8bce.png",
+         "alt": "Relaxed Crew"
+    }
+  
+  },
+{
+    "title": "The Performance Chino",
+    "subTitle": "blue",
+    "price": 364,
+    "category": "Pants",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/6cc145ea_86a3.png",
+         "alt": "Performance Crew"
+    }
+  
+  },
+{
+    "title": "The Premium-Weight Relaxed Crew",
+    "subTitle": "brown",
+    "price": 248,
+    "category": "Pants",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/d4fa5781_ebde.png",
+         "alt": "Relaxed Crew"
+    }
+  
+  },
+{
+    "title": "The Easy Pant",
+    "subTitle": "brown",
+    "price": 364,
+    "category": "Pants",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/8981c33b_f70d.png",
+         "alt": "Relaxed Crew"
+    }
+  
+  },
+{
+    "title": "The Performance Chino",
+    "subTitle": "grey",
+    "price": 275,
+    "category": "Pants",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/f85da71a_b40a.png",
+         "alt": "Chino Crew"
+    }
+  
+  },
+{
+    "title": "The Tread-Bare Sneaker",
+    "subTitle": "canvas",
+    "price": 482,
+    "category": "Shoes",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/425ef146_2290.png",
+         "alt": "Tread-Bare "
+    }
+  
+  },
+{
+    "title": "The ReLeather Court Sneaker",
+    "subTitle": "grey",
+    "price": 332,
+    "category": "Shoes",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/756acc2c_8acd.png",
+         "alt": "ReLeather Court"
+    }
+  
+  },
+{
+    "title": "The Tread-Bare Sneaker",
+    "subTitle": "pink",
+    "price": 264,
+    "category": "Shoes",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/50e500d0_ab50.png",
+         "alt": "Tread-Bare"
+    }
+  
+  },
+{
+    "title": "The ReLeather Court Sneaker",
+    "subTitle": "white",
+    "price": 275,
+    "category": "Shoes",
+    "gender": "men",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/563f6074_11e7.png",
+         "alt": "ReLeather Court"
+    }
+  
+  }
+]

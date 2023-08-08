@@ -30,7 +30,6 @@ const RegisterPage = ({ onClose, onOpen }) => {
   const handleBtnClick = async (ev) => {
     try {
       const JoiResponse = validateRegisterSchema(inputState);
-      console.log(JoiResponse);
       setInputsErrorsState(JoiResponse);
       if (JoiResponse) {
         return;
