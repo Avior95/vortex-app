@@ -12,8 +12,7 @@
       "city": "Ashkeluna",
       "street": "nof ha hof",
       "houseNumber": 255
-    },
-    "isAdmin": true
+    }
   },
   {
     "name": {
@@ -43,7 +42,6 @@
       "city": "Ashkeluna",
       "street": "nof ha hof",
       "houseNumber": 255
-    },
-    "isBusiness": true
+    }
   }
 ]

@@ -1,3 +1,3 @@
 const chalk = require("chalk");
 
-console.log(chalk.red("your script running"));
+console.log(chalk.green("your script running"));

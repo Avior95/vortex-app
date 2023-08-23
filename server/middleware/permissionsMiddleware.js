@@ -1,5 +1,5 @@
 const CustomError = require("../utils/CustomError");
-const { getCardById } = require("../model/cardsService/cardsService");
+const { getItemById } = require("../model/womenItemService/womenItemsService");
 /*
     TODO:
         finish isBizSpecific
@@ -8,7 +8,7 @@ const { getCardById } = require("../model/cardsService/cardsService");
 const checkIfBizOwner = async (iduser, idcard, res, next) => {
   try {
     //! joi the idcard
-    const cardData = await getCardById(idcard);
+    const cardData = await getItemById(idcard);
     if (!cardData) {
       return res.status(400).json({ msg: "card not found" });
     }
@@ -33,15 +33,15 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
-    if (isBiz === req.userData.isBusiness && isBiz === true) {
-      return next();
-    }
+    // if (isBiz === req.userData.isBusiness && isBiz === true) {
+    //   return next();
+    // }
     if (isAdmin === req.userData.isAdmin && isAdmin === true) {
       return next();
     }
-    if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
-      return checkIfBizOwner(req.userData._id, req.params.id, res, next);
-    }
+    // if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
+    //   return checkIfBizOwner(req.userData._id, req.params.id, res, next);
+    // }
     res.status(401).json({ msg: "you not allowed to edit this card " });
   };
 };

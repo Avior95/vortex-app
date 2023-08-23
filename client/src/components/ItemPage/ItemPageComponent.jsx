@@ -9,12 +9,12 @@ import {
   Button,
   Box,
 } from "@mui/material";
-const ItemPageComponent = ({ URL, title, itemColor, price }) => {
+const ItemPageComponent = ({ subTitle, title, price, image }) => {
   return (
     <Box>
       <Card square raised>
         <CardActionArea>
-          <CardMedia component="img" image={URL} />
+          <CardMedia component="img" image={image} />
         </CardActionArea>
         <CardHeader
           title={
@@ -22,7 +22,7 @@ const ItemPageComponent = ({ URL, title, itemColor, price }) => {
               {title}
             </Typography>
           }
-          subheader={itemColor}
+          subheader={subTitle}
         ></CardHeader>
         <CardContent>
           <Typography>{price}</Typography>

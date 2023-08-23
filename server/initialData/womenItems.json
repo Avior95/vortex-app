@@ -1,0 +1,195 @@
+[
+   
+  {
+    "title": "The Easy Short",
+    "subTitle": "Black",
+    "price": 215,
+    "category": "Short",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/c5d632cc_29c3.png",
+         "alt": "Chino Short"
+    }
+  
+  },
+{
+    "title": "The Easy Short",
+    "subTitle": "brown",
+    "price": 289,
+    "category": "Short",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/ccc92b05_2ea3.png",
+         "alt": "Drape Short"
+    }
+  
+  },
+{
+    "title": "The Easy Short",
+    "subTitle": "white",
+    "price": 215,
+    "category": "Short",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/deef31ef_ec23.png",
+         "alt": "Chino Short"
+    }
+  
+  },
+{
+    "title": "The Denim Utility Short",
+    "subTitle": "blue",
+    "price": 326,
+    "category": "Short",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/f2d5057c_7ce7.png",
+         "alt": "Utility Short"
+    }
+  
+  },
+{
+    "title": "The Organic Cotton Raglan Tee",
+    "subTitle": "black",
+    "price": 126,
+    "category": "Tees",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/f0e1546d_ff9f.png",
+         "alt": "Drape Short"
+    }
+  
+  },
+{
+    "title": "The Premium-Weight Pocket Tee",
+    "subTitle": "white",
+    "price": 111,
+    "category": "Tees",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/86ed2290_b57f.png",
+         "alt": "Pocket Tee"
+    }
+  
+  },
+{
+    "title": "The Organic Cotton Box-Cut Tee",
+    "subTitle": "grey",
+    "price": 111,
+    "category": "Tees",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/fb0c7899_76cc.png",
+         "alt": "Cotton Easy"
+    }
+  
+  },
+{
+    "title": "The Premium-Weight Relaxed Crew",
+    "subTitle": "green",
+    "price": 167,
+    "category": "Tees",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/e232fef9_2f55.png",
+         "alt": "Relaxed Crew"
+    }
+  
+  },
+{
+    "title": "The Utility Barrel Pant",
+    "subTitle": "brown",
+    "price": 422,
+    "category": "Pants",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/577ecc14_aab8.png",
+         "alt": "Performance Crew"
+    }
+  
+  },
+{
+    "title": "The Organic Wide-Leg Pant",
+    "subTitle": "grey",
+    "price": 364,
+    "category": "Pants",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/6836e483_1d9d.png",
+         "alt": "Relaxed Crew"
+    }
+  
+  },
+{
+    "title": "The Utility Barrel Pant",
+    "subTitle": "blue",
+    "price": 285,
+    "category": "Pants",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/8d16b2a4_1709.png",
+         "alt": "Relaxed Crew"
+    }
+  
+  },
+{
+    "title": "The Dream Pant",
+    "subTitle": "black",
+    "price": 326,
+    "category": "Pants",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/67678c6a_299e.png",
+         "alt": "Dream Pant"
+    }
+  
+  },
+{
+    "title": "The Italian Leather Day Glove",
+    "subTitle": "black",
+    "price": 501,
+    "category": "Shoes",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/3a85578e_1871.png",
+         "alt": "Tread-Bare "
+    }
+  
+  },
+{
+    "title": "The Modern Loafer",
+    "subTitle": "brown",
+    "price": 612,
+    "category": "Shoes",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/33c75e85_acfb.png",
+         "alt": "ReLeather Court"
+    }
+  
+  },
+{
+    "title": "The Italian Leather Day Glove",
+    "subTitle": "black",
+    "price": 649,
+    "category": "Shoes",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/9764e4a5_aa3f.png",
+         "alt": "Tread-Bare"
+    }
+  
+  },
+{
+    "title": "The Italian Leather Day Glove",
+    "subTitle": "pink",
+    "price": 501,
+    "category": "Shoes",
+    "gender": "women",
+    "image":{
+        "url": "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/3376087d_65c5.png",
+         "alt": "Leather Day Glove"
+    }
+  
+  }
+]

@@ -9,29 +9,52 @@ import List from "@mui/material/List";
 import { Box } from "@mui/material";
 import ROUTES from "../../routes/ROUTES";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const DrawerListComponent = () => {
-  const [openList, setOpenList] = React.useState(true);
+  const [openList, setOpenList] = useState(false);
+  const [selectedGender, setSelectedGender] = useState("Man");
 
-  const handleClick = () => {
-    setOpenList(!openList);
+  const handleGenderClick = (gender) => {
+    setSelectedGender(gender);
+    setOpenList(true);
   };
-  const ItemCategoriesLinks = [
+
+  const MenCategoriesLinks = [
     {
-      label: "Pants",
-      url: ROUTES.ITEMPAGE,
+      label: "Men's Pants",
+      url: ROUTES.MEN_PANTS,
     },
     {
-      label: "Shoes",
-      url: ROUTES.ITEMPAGE,
+      label: "Men's Shoes",
+      url: ROUTES.MEN_SHOES,
     },
     {
-      label: "Shorts",
-      url: ROUTES.ITEMPAGE,
+      label: "Men's Shorts",
+      url: ROUTES.MEN_SHORTS,
     },
     {
-      label: "Tess",
-      url: ROUTES.ITEMPAGE,
+      label: "Men's T-Shirts",
+      url: ROUTES.MEN_TEES,
+    },
+  ];
+
+  const WomenCategoriesLinks = [
+    {
+      label: "Women's Pants",
+      url: ROUTES.WOMEN_PANTS,
+    },
+    {
+      label: "Women's Shoes",
+      url: ROUTES.WOMEN_SHOES,
+    },
+    {
+      label: "Women's Shorts",
+      url: ROUTES.WOMEN_SHORTS,
+    },
+    {
+      label: "Women's T-Shirts",
+      url: ROUTES.WOMEN_TEES,
     },
   ];
   return (
@@ -45,7 +68,7 @@ const DrawerListComponent = () => {
       >
         {["Women", "Men"].map((text) => (
           <ListItem key={text}>
-            <ListItemButton>
+            <ListItemButton onClick={() => handleGenderClick(text)}>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -53,23 +76,27 @@ const DrawerListComponent = () => {
       </List>
 
       <List>
-        <ListItemButton onClick={handleClick}>
+        <ListItemButton onClick={() => setOpenList(!openList)}>
           <ListItemText primary={"Apparel"} />
           {openList ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={openList} timeout="auto" unmountOnExit>
-          {ItemCategoriesLinks.map((Link) => (
-            <List component="div" disablePadding key={Link.label}>
-              <ListItemButton sx={{ pl: 4 }}>
-                <NavLink
-                  to={Link.url}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <ListItemText primary={Link.label} />
-                </NavLink>
-              </ListItemButton>
-            </List>
-          ))}
+          {openList &&
+            (selectedGender === "Men"
+              ? MenCategoriesLinks
+              : WomenCategoriesLinks
+            ).map((Link) => (
+              <List component="div" disablePadding key={Link.label}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <NavLink
+                    to={Link.url}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <ListItemText primary={Link.label} />
+                  </NavLink>
+                </ListItemButton>
+              </List>
+            ))}
         </Collapse>
       </List>
       <List>
