@@ -9,14 +9,21 @@ import List from "@mui/material/List";
 import { Box } from "@mui/material";
 import ROUTES from "../../routes/ROUTES";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { genderActions } from "../../store/gender";
+
 import { useState } from "react";
 
 const DrawerListComponent = () => {
   const [openList, setOpenList] = useState(false);
-  const [selectedGender, setSelectedGender] = useState("Man");
+  // const [selectedGender, setSelectedGender] = useState("Men");
+  const isMen = useSelector((bigPie) => bigPie.genderSlice.isMen);
 
-  const handleGenderClick = (gender) => {
-    setSelectedGender(gender);
+  const dispatch = useDispatch();
+
+  const handleGenderClick = () => {
+    // setSelectedGender(gender);
+    dispatch(genderActions.changeGender());
     setOpenList(true);
   };
 
@@ -68,7 +75,7 @@ const DrawerListComponent = () => {
       >
         {["Women", "Men"].map((text) => (
           <ListItem key={text}>
-            <ListItemButton onClick={() => handleGenderClick(text)}>
+            <ListItemButton onClick={() => handleGenderClick()}>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -82,10 +89,7 @@ const DrawerListComponent = () => {
         </ListItemButton>
         <Collapse in={openList} timeout="auto" unmountOnExit>
           {openList &&
-            (selectedGender === "Men"
-              ? MenCategoriesLinks
-              : WomenCategoriesLinks
-            ).map((Link) => (
+            (isMen ? MenCategoriesLinks : WomenCategoriesLinks).map((Link) => (
               <List component="div" disablePadding key={Link.label}>
                 <ListItemButton sx={{ pl: 4 }}>
                   <NavLink

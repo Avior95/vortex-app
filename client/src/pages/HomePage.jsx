@@ -1,13 +1,36 @@
-import { Box, Grid } from "@mui/material";
+import { Box, CircularProgress, Grid } from "@mui/material";
 import MainImageComponent from "../components/HomePage/MainImageComponent";
 import ProductBtnComponent from "../components/HomePage/ProductBtnComponent";
 import SliderComponent from "../components/Sliders/SliderComponent";
 import sliderItems from "../components/Sliders/slider.json";
 import Typography from "@mui/material/Typography";
 import InformativeLogosData from "../initialData/LogosData.json";
-import MenCategories from "../initialData/MenCategories.json";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
+  const [itemsArr, setItemsArr] = useState(null);
+  const isMen = useSelector((bigPie) => bigPie.genderSlice.isMen);
+  console.log(isMen);
+
+  useEffect(() => {
+    const categoryEndpoint = isMen ? "/CategoriesMen" : "/CategoriesWomen";
+    console.log("categoryEndpoint:", categoryEndpoint);
+    axios
+      .get(categoryEndpoint)
+      .then(({ data }) => {
+        console.log("data", data);
+        setItemsArr(data);
+      })
+      .catch((err) => {
+        console.log("err from axios", err);
+      });
+  }, [isMen]);
+
+  if (!itemsArr) {
+    return <CircularProgress />;
+  }
   return (
     <Box
       sx={{
@@ -29,9 +52,9 @@ const HomePage = () => {
 
       {/* ProductBtnComponent Grid */}
       <Grid container sx={{ marginTop: 8, marginBottom: 8 }}>
-        {MenCategories.map((category) => (
-          <Grid item xs={3} md={3} key={category.URL}>
-            <ProductBtnComponent {...category} />
+        {itemsArr.map((item) => (
+          <Grid item xs={3} md={3} key={item._id}>
+            <ProductBtnComponent URL={item.image.url} button={item.button} />
           </Grid>
         ))}
       </Grid>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Router from "../../routes/ROUTES";
 import ROUTES from "../../routes/ROUTES";
 
-const ProductBtnComponent = ({ URL, ProductBtnText }) => {
+const ProductBtnComponent = ({ URL, button }) => {
   const navigate = useNavigate();
 
   const handleProductBtnClick = () => {
@@ -26,7 +26,7 @@ const ProductBtnComponent = ({ URL, ProductBtnText }) => {
 
       <MinorButtonComponent
         homePageProductClick={handleProductBtnClick}
-        text={ProductBtnText}
+        text={button}
       />
     </Box>
   );

@@ -15,8 +15,9 @@ axios.interceptors.request.use((config) => {
   if (token) {
     config.headers["x-auth-token"] = token;
   }
-  return config; // send the new data
+  return config;
 });
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
