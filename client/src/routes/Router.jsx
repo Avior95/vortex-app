@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import AboutPage from "../pages/AboutPage";
+import ProductDetailPage from "../pages/ProductDetailPage";
 import ROUTES from "./ROUTES";
 // Men's
 import MenPants from "../pages/men/MenPants";
@@ -22,6 +23,11 @@ const Router = () => {
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+      <Route
+        path={`${ROUTES.DETAILPAGE}/:productId`}
+        element={<ProductDetailPage />}
+      />
+
       {/* Men's */}
       <Route path={ROUTES.MEN_PANTS} element={<MenPants />} />
       <Route path={ROUTES.MEN_SHOES} element={<MenShoes />} />

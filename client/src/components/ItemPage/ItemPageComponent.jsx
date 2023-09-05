@@ -9,13 +9,23 @@ import {
   Button,
   Box,
 } from "@mui/material";
-const ItemPageComponent = ({ subTitle, title, price, image }) => {
+import ROUTES from "../../routes/ROUTES";
+import { Link } from "react-router-dom";
+
+const ItemPageComponent = ({ subTitle, title, price, image, productId }) => {
+  const productDetailURL = `${ROUTES.DETAILPAGE}/${productId}`;
+
   return (
     <Box>
       <Card square raised>
-        <CardActionArea>
-          <CardMedia component="img" image={image} />
-        </CardActionArea>
+        <Link
+          to={productDetailURL}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <CardActionArea>
+            <CardMedia component="img" image={image} />
+          </CardActionArea>
+        </Link>
         <CardHeader
           title={
             <Typography variant="h6" sx={{ fontSize: "1rem" }}>

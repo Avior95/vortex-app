@@ -3,6 +3,8 @@
     
       "gender": "women",
      "button": "SHOPE PANTS",
+     "categoryRoute": "/women's-pants" ,
+
      "image":{
       "url":   "https://media.everlane.com/image/upload/c_fill,w_1080,ar_5:7,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/ed4f45e0_b135.png",
        "alt": "Crew Easy"
@@ -11,14 +13,17 @@
     {
       "gender": "women",
      "button": "SHOPE SHORTS",
+     "categoryRoute": "/women's-shorts" ,
+
      "image":{
-      "url":   "https://media.everlane.com/image/upload/c_fill,w_640,ar_250:312,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/99c03a19_a1cd.png",
+      "url":   "https://media.everlane.com/image/upload/c_fill,w_640,ar_4:5,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/deef31ef_ec23.png",
        "alt": "Crew Easy"
   }
     },
     {
       "gender": "women",
      "button": "SHOPE SHOES",
+     "categoryRoute": "/women's-shoes" ,
      "image":{
       "url":    "https://media.everlane.com/image/upload/c_fill,w_1080,ar_5:7,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/3a85578e_1871.png",
        "alt": "Crew Easy"
@@ -27,6 +32,7 @@
     {
       "gender": "women",
      "button": "SHOPE TESS",
+     "categoryRoute": "/women's-tees" ,
      "image":{
       "url":     "https://media.everlane.com/image/upload/c_fill,w_1080,ar_5:7,q_auto,dpr_1.0,f_auto,fl_progressive:steep/i/36e7a2db_6114.png",
        "alt": "Crew Easy"

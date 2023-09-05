@@ -32,6 +32,7 @@ const MenTees = () => {
                 title={item.title}
                 subTitle={item.subTitle}
                 image={item.image.url}
+                productId={item._id}
               />
             )}
           </Grid>

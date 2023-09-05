@@ -8,6 +8,7 @@ const {
 const HomePageWomenSchema = new mongoose.Schema({
   gender: DEFAULT_STRING_SCHEMA_REQUIRED,
   button: DEFAULT_STRING_SCHEMA_REQUIRED,
+  categoryRoute: DEFAULT_STRING_SCHEMA_REQUIRED,
   image: Image,
   createdAt: {
     type: Date,

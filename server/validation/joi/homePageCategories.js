@@ -3,6 +3,7 @@ const Joi = require("joi");
 const createHomePageCategoriesSchema = Joi.object({
   gender: Joi.string().min(2).max(256).required(),
   button: Joi.string().min(2).max(256).required(),
+  categoryRoute: Joi.string().min(2).max(256).required(),
   image: Joi.object().keys({
     url: Joi.string().regex(
       new RegExp(

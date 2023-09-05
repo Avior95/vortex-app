@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Router from "../../routes/ROUTES";
 import ROUTES from "../../routes/ROUTES";
 
-const ProductBtnComponent = ({ URL, button }) => {
+const ProductBtnComponent = ({ URL, button, categoryRoute }) => {
   const navigate = useNavigate();
 
   const handleProductBtnClick = () => {
-    navigate(ROUTES.ITEMPAGE);
+    navigate(categoryRoute);
   };
 
   return (

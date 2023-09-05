@@ -14,15 +14,15 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.get("items/:id", async (req, res) => {
-//   try {
-//     await itemsValidationService.idValidation(req.params.id);
-//     const itemFromDB = await menItemsServiceModel.getItemById(req.params.id);
-//     res.json(itemFromDB);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+router.get("/men/:id", async (req, res) => {
+  try {
+    await itemsValidationService.idValidation(req.params.id);
+    const itemFromDB = await menItemsServiceModel.getItemById(req.params.id);
+    res.json(itemFromDB);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.post(
   "/",

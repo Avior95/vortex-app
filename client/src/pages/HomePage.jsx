@@ -12,15 +12,12 @@ import { useSelector } from "react-redux";
 const HomePage = () => {
   const [itemsArr, setItemsArr] = useState(null);
   const isMen = useSelector((bigPie) => bigPie.genderSlice.isMen);
-  console.log(isMen);
 
   useEffect(() => {
     const categoryEndpoint = isMen ? "/CategoriesMen" : "/CategoriesWomen";
-    console.log("categoryEndpoint:", categoryEndpoint);
     axios
       .get(categoryEndpoint)
       .then(({ data }) => {
-        console.log("data", data);
         setItemsArr(data);
       })
       .catch((err) => {
@@ -54,7 +51,11 @@ const HomePage = () => {
       <Grid container sx={{ marginTop: 8, marginBottom: 8 }}>
         {itemsArr.map((item) => (
           <Grid item xs={3} md={3} key={item._id}>
-            <ProductBtnComponent URL={item.image.url} button={item.button} />
+            <ProductBtnComponent
+              URL={item.image.url}
+              button={item.button}
+              categoryRoute={item.categoryRoute}
+            />
           </Grid>
         ))}
       </Grid>

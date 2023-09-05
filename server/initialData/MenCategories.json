@@ -2,6 +2,7 @@
     {
       "gender": "men",
      "button": "SHOPE PANTS",
+     "categoryRoute": "/mens-pants" ,
      "image":{
       "url": "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/3d4b2231_eb6f.png",
        "alt": "Crew Easy"
@@ -11,6 +12,7 @@
     {
      "gender": "men",
      "button": "SHOPE SHORTS",
+     "categoryRoute": "/mens-shorts" ,
      "image":{
       "url": "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/c5382c5b_de85.png",
        "alt": "Crew Easy"
@@ -20,6 +22,7 @@
     {
       "gender": "men",
       "button": "SHOPE SHOES",
+     "categoryRoute": "/mens-shoes" ,
       "image":{
        "url":  "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/43f631b9_3601.png",
        "alt": "Crew Easy"
@@ -28,6 +31,7 @@
     {
       "gender": "men",
      "button": "SHOPE TESS",
+     "categoryRoute": "/mens-tees" ,
      "image":{
       "url":   "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_800/v1/i/884e9ff9_9528.png",
        "alt": "Crew Easy"
