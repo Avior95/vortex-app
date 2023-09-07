@@ -4,6 +4,7 @@ const ROUTES = {
   REGISTER: "/registerPage",
   LOGIN: "/loginPage",
   DETAILPAGE: "/product-detail",
+  EDITPAGE: "/edit",
   MEN_PANTS: "/mens-pants",
   MEN_SHOES: "/mens-shoes",
   MEN_SHORTS: "/mens-shorts",

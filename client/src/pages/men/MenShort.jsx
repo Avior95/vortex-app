@@ -2,9 +2,11 @@ import { Box, CircularProgress, Grid } from "@mui/material";
 import ItemPageComponent from "../../components/ItemPage/ItemPageComponent";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MenShort = () => {
   const [itemsArr, setItemsArr] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -16,6 +18,20 @@ const MenShort = () => {
         console.log("err from axios", err);
       });
   }, []);
+
+  const handleDeleteFromInitialCardsArr = async (id) => {
+    try {
+      await axios.delete("/men/" + id);
+      setItemsArr((newItemsArr) =>
+        newItemsArr.filter((item) => item._id !== id)
+      );
+    } catch (err) {
+      console.log("error when deleting", err.response.data);
+    }
+  };
+  const handleEditFromInitialItemsArr = (id) => {
+    navigate(`/edit/${id}`);
+  };
 
   if (!itemsArr) {
     return <CircularProgress />;
@@ -32,7 +48,9 @@ const MenShort = () => {
                 title={item.title}
                 subTitle={item.subTitle}
                 image={item.image.url}
-                productId={item._id}
+                itemId={item._id}
+                onDelete={handleDeleteFromInitialCardsArr}
+                onEdit={handleEditFromInitialItemsArr}
               />
             )}
           </Grid>

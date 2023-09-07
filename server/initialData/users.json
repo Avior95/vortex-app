@@ -7,12 +7,9 @@
     "phone": "0500000000",
     "email": "avior@gmail.com",
     "password": "Aa123456!",
-    "address": {
-      "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "nof ha hof",
-      "houseNumber": 255
-    }
+    "isAdmin": true
+  
+    
   },
   {
     "name": {
@@ -22,12 +19,9 @@
     "phone": "0500000000",
     "email": "shir@gmail.com",
     "password": "Aa123456!",
-    "address": {
-      "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "nof ha hof",
-      "houseNumber": 255
-    }
+    "isAdmin": false
+
+ 
   },
   {
     "name": {
@@ -37,11 +31,8 @@
     "phone": "0500000000",
     "email": "ron@gmail.com",
     "password": "Aa123456!",
-    "address": {
-      "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "nof ha hof",
-      "houseNumber": 255
-    }
+    "isAdmin": false
+
+  
   }
 ]

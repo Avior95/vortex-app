@@ -10,10 +10,6 @@ const normalizeUser = (userData) => {
   };
   return {
     ...userData,
-    address: {
-      ...userData.address,
-      state: userData.address.state || "",
-    },
   };
 };
 

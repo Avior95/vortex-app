@@ -13,7 +13,6 @@ const ProductDetailPage = () => {
       .get("/men/men/" + productId)
       .then(({ data }) => {
         setItemsArr(data);
-        console.log(data);
       })
       .catch((err) => {
         console.log("err from axios", err);
@@ -25,7 +24,6 @@ const ProductDetailPage = () => {
       .get("/women/women/" + productId)
       .then(({ data }) => {
         setItemsArr(data);
-        console.log(data);
       })
       .catch((err) => {
         console.log("err from axios", err);

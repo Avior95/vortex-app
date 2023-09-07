@@ -4,6 +4,7 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import AboutPage from "../pages/AboutPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
+import ProductEditPage from "../pages/ProductEditPage ";
 import ROUTES from "./ROUTES";
 // Men's
 import MenPants from "../pages/men/MenPants";
@@ -26,6 +27,10 @@ const Router = () => {
       <Route
         path={`${ROUTES.DETAILPAGE}/:productId`}
         element={<ProductDetailPage />}
+      />
+      <Route
+        path={`${ROUTES.EDITPAGE}/:productId`}
+        element={<ProductEditPage />}
       />
 
       {/* Men's */}

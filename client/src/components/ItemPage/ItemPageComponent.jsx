@@ -11,9 +11,27 @@ import {
 } from "@mui/material";
 import ROUTES from "../../routes/ROUTES";
 import { Link } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const ItemPageComponent = ({ subTitle, title, price, image, productId }) => {
-  const productDetailURL = `${ROUTES.DETAILPAGE}/${productId}`;
+const ItemPageComponent = ({
+  subTitle,
+  title,
+  price,
+  image,
+  itemId,
+  onDelete,
+  onEdit,
+}) => {
+  const productDetailURL = `${ROUTES.DETAILPAGE}/${itemId}`;
+
+  const handleDeleteBtnClick = () => {
+    onDelete(itemId);
+  };
+  const handleEditBtnClick = () => {
+    onEdit(itemId);
+  };
 
   return (
     <Box>
@@ -35,11 +53,17 @@ const ItemPageComponent = ({ subTitle, title, price, image, productId }) => {
           subheader={subTitle}
         ></CardHeader>
         <CardContent>
-          <Typography>{price}</Typography>
+          <Typography>${price}</Typography>
         </CardContent>
         <CardActions>
           <Button variant="text" color="primary">
-            Add to cart
+            <ShoppingCartIcon />
+          </Button>
+          <Button variant="text" color="primary" onClick={handleEditBtnClick}>
+            <EditIcon />
+          </Button>
+          <Button variant="text" color="primary" onClick={handleDeleteBtnClick}>
+            <DeleteIcon />
           </Button>
         </CardActions>
       </Card>

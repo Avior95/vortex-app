@@ -9,6 +9,7 @@ const registerSchema = Joi.object({
       new RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)
     )
     .required(),
+  isAdmin: Joi.boolean().allow(""),
   password: Joi.string()
     .regex(
       new RegExp(

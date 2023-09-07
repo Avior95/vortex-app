@@ -21,5 +21,19 @@ router.get("/women/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+router.delete("/:id", async (req, res) => {
+  try {
+    await itemsValidationService.idValidation(req.params.id);
+    const itemFromDB = await womenItemsService.deleteItem(req.params.id);
+    if (itemFromDB) {
+      res.json({ msg: "item deleted" });
+    } else {
+      res.json({ msg: "could not find the item" });
+    }
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+module.exports = router;
 
 module.exports = router;
