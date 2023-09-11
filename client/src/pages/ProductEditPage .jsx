@@ -1,13 +1,104 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import HomeIcon from "@mui/icons-material/Home";
+import axios from "axios";
+import { CircularProgress } from "@mui/material";
 
 const ProductEditPage = () => {
+  const { productId } = useParams();
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    price: "",
+    image: {
+      url: "",
+      alt: "",
+    },
+    subTitle: "",
+  });
+  // console.log(formData.image.url);
+
+  useEffect(() => {
+    axios
+      .get("/men/men/" + productId)
+      .then(({ data }) => {
+        if (data) {
+          setFormData({
+            title: data.title || "",
+            category: data.category || "",
+            price: data.price || "",
+            image: {
+              url: data.image ? data.image.url : "",
+              alt: data.image ? data.image.alt : "",
+            },
+            subTitle: data.subTitle || "",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("Error fetching product data", err);
+      });
+  }, [productId]);
+
+  useEffect(() => {
+    axios
+      .get("/women/women/" + productId)
+      .then(({ data }) => {
+        if (data) {
+          setFormData({
+            title: data.title || "",
+            category: data.category || "",
+            price: data.price || "",
+            image: {
+              url: data.image ? data.image.url : "",
+              alt: data.image ? data.image.alt : "",
+            },
+            subTitle: data.subTitle || "",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("Error fetching product data", err);
+      });
+  }, [productId]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleEditClick = () => {
+    const formDataWithoutIdsAndCreatedAt = { ...formData };
+    delete formDataWithoutIdsAndCreatedAt._id;
+    delete formDataWithoutIdsAndCreatedAt.image._id;
+    delete formDataWithoutIdsAndCreatedAt.createdAt;
+    delete formDataWithoutIdsAndCreatedAt.user_id;
+    axios
+      .put("/men/" + productId, formData)
+      .then(() => {
+        navigate("/product-detail/" + productId);
+      })
+      .catch((err) => {
+        console.log("Error editing product", err.response.data);
+      });
+    axios
+      .put("/women/" + productId, formData)
+      .then(() => {
+        navigate("/product-detail/" + productId);
+      })
+      .catch((err) => {
+        console.log("Error editing product", err.response.data);
+      });
+  };
+
   const styles = {
     root: {
       backgroundColor: "#F9F5EB",
@@ -25,25 +116,12 @@ const ProductEditPage = () => {
       marginTop: "20px",
     },
   };
+  if (!formData) {
+    return <CircularProgress />;
+  }
 
   return (
     <div style={styles.root}>
-      <div
-        style={{
-          position: "absolute",
-          top: "10px",
-          left: "10px",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Link to="/" style={{ color: "black", marginRight: "10px" }}>
-          <ArrowBackIcon />
-        </Link>
-        <Link to="/" style={{ color: "black", marginLeft: "10px" }}>
-          <HomeIcon />
-        </Link>
-      </div>
       <div style={styles.container}>
         <Typography variant="h4" align="center">
           Edit Product
@@ -51,32 +129,74 @@ const ProductEditPage = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <TextField fullWidth style={styles.input} label="Title" />
+            <TextField
+              style={styles.input}
+              fullWidth
+              label="Title"
+              name="title"
+              value={formData.title}
+              onChange={handleInputChange}
+            />
           </Grid>
 
           <Grid item xs={12}>
-            <TextField fullWidth style={styles.input} label="Category" />
+            <TextField
+              style={styles.input}
+              fullWidth
+              label="Category"
+              name="category"
+              value={formData.category}
+              onChange={handleInputChange}
+            />
           </Grid>
 
           <Grid item xs={12}>
-            <TextField fullWidth style={styles.input} label="Price" />
+            <TextField
+              style={styles.input}
+              fullWidth
+              label="Price"
+              name="price"
+              value={formData.price}
+              onChange={handleInputChange}
+            />
           </Grid>
 
           <Grid item xs={12}>
-            <TextField fullWidth style={styles.input} label="Image URL" />
+            <TextField
+              style={styles.input}
+              fullWidth
+              label="Image"
+              name="image"
+              value={formData.image.url}
+              onChange={handleInputChange}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              style={styles.input}
+              fullWidth
+              label="Alt"
+              name="alt"
+              value={formData.image.alt}
+              onChange={handleInputChange}
+            />
           </Grid>
 
           <Grid item xs={12}>
-            <TextField fullWidth style={styles.input} label="Quantity" />
-          </Grid>
-
-          <Grid item xs={12}>
-            <TextField fullWidth style={styles.input} label="Description" />
+            <TextField
+              fullWidth
+              style={styles.input}
+              label="SubTitle"
+              name="subTitle"
+              value={formData.subTitle}
+              onChange={handleInputChange}
+            />
           </Grid>
         </Grid>
 
         <div style={styles.button}>
           <Button
+            onClick={handleEditClick}
             variant="contained"
             color="primary"
             style={{

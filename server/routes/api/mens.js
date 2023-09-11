@@ -42,25 +42,20 @@ router.post(
   }
 );
 
-// router.put(
-//   "/:id",
-//   authmw,
-//   permissionsMiddleware(false, true, false),
-//   async (req, res) => {
-//     try {
-//       await itemsValidationService.idValidation(req.params.id);
-//       await itemsValidationService.createItemValidation(req.body);
-//       //normalizeItem
-//       const itemFromDB = await menItemsServiceModel.updateItem(
-//         req.params.id,
-//         req.body
-//       );
-//       res.json(itemFromDB);
-//     } catch (err) {
-//       res.status(400).json(err);
-//     }
-//   }
-// );
+router.put("/:id", async (req, res) => {
+  try {
+    await itemsValidationService.idValidation(req.params.id);
+    await itemsValidationService.createItemValidation(req.body);
+    //normalizeItem
+    const itemFromDB = await menItemsServiceModel.updateItem(
+      req.params.id,
+      req.body
+    );
+    res.json(itemFromDB);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.delete("/:id", async (req, res) => {
   try {

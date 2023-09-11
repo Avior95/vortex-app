@@ -3,12 +3,13 @@ const Image = require("./Image");
 
 const {
   DEFAULT_STRING_SCHEMA_REQUIRED,
+  DEFAULT_STRING_SCHEMA,
 } = require("./helpers/mongooseValidation");
 
 const womenSchema = new mongoose.Schema({
   title: DEFAULT_STRING_SCHEMA_REQUIRED,
   subTitle: DEFAULT_STRING_SCHEMA_REQUIRED,
-  gender: DEFAULT_STRING_SCHEMA_REQUIRED,
+  gender: DEFAULT_STRING_SCHEMA,
   category: DEFAULT_STRING_SCHEMA_REQUIRED,
   price: {
     type: Number,
