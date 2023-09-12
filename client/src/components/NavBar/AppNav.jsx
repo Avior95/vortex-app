@@ -21,6 +21,7 @@ import { AddShoppingCart } from "@mui/icons-material";
 import CartComponent from "../Cart/CartItemsComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth";
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
 
 const drawerWidth = 240;
 
@@ -125,6 +126,7 @@ const PersistentDrawerLeft = () => {
           >
             <SearchIcon />
           </IconButton>
+
           {/* ShoppingCartIcon*/}
           <IconButton
             color="inherit"
@@ -135,7 +137,22 @@ const PersistentDrawerLeft = () => {
           >
             <AddShoppingCart />
           </IconButton>
+
           {cartOpen && <CartComponent closeBtn={closeCart} />}
+          <Link to="/add" style={{ textDecoration: "none" }}>
+            <IconButton
+              color="inherit"
+              aria-label="add"
+              edge="start"
+              sx={{
+                mr: 2,
+                color: "black",
+                display: { xs: "flex", md: "block" },
+              }}
+            >
+              <ControlPointIcon />
+            </IconButton>
+          </Link>
         </Box>
       </Toolbar>
 

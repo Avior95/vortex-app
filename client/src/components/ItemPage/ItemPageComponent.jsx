@@ -30,7 +30,6 @@ const ItemPageComponent = ({
     onDelete(itemId);
   };
   const handleEditBtnClick = () => {
-    console.log(itemId);
     onEdit(itemId);
   };
 

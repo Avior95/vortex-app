@@ -5,6 +5,7 @@ const ROUTES = {
   LOGIN: "/loginPage",
   DETAILPAGE: "/product-detail",
   EDITPAGE: "/edit",
+  ADDPAGE: "/add",
   MEN_PANTS: "/mens-pants",
   MEN_SHOES: "/mens-shoes",
   MEN_SHORTS: "/mens-shorts",

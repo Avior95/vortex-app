@@ -22,6 +22,24 @@ router.get("/women/:id", async (req, res) => {
   }
 });
 
+router.post(
+  "/",
+  // authmw,
+  // permissionsMiddleware(true, false, false),
+  async (req, res) => {
+    try {
+      await itemsValidationService.createItemValidation(req.body);
+      // normalizeItem///
+      // const dataFromMongoose = await menItemsServiceModel.createItem(normalItem);
+      const dataFromMongoose = await womenItemsService.createItem(req.body);
+      console.log("dataFromMongoose", dataFromMongoose);
+      res.json({ msg: "Successfully added card" });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  }
+);
+
 router.put("/:id", async (req, res) => {
   try {
     await itemsValidationService.idValidation(req.params.id);

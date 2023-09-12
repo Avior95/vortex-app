@@ -35,7 +35,7 @@ router.post(
       // const dataFromMongoose = await menItemsServiceModel.createItem(normalItem);
       const dataFromMongoose = await menItemsServiceModel.createItem(req.body);
       console.log("dataFromMongoose", dataFromMongoose);
-      res.json({ msg: "ok" });
+      res.json({ msg: "Successfully added card" });
     } catch (err) {
       res.status(400).json(err);
     }
