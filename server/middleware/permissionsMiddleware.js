@@ -1,26 +1,26 @@
 const CustomError = require("../utils/CustomError");
-const { getItemById } = require("../model/womenItemService/womenItemsService");
+// const { getItemById } = require("../model/womenItemService/womenItemsService");
 /*
     TODO:
         finish isBizSpecific
 */
 
-const checkIfBizOwner = async (iduser, idcard, res, next) => {
-  try {
-    //! joi the idcard
-    const cardData = await getItemById(idcard);
-    if (!cardData) {
-      return res.status(400).json({ msg: "card not found" });
-    }
-    if (cardData.user_id == iduser) {
-      next();
-    } else {
-      res.status(401).json({ msg: "you not the biz owner" });
-    }
-  } catch (err) {
-    res.status(400).json(err);
-  }
-};
+// const checkIfBizOwner = async (iduser, idcard, res, next) => {
+//   try {
+//     //! joi the idcard
+//     const cardData = await getItemById(idcard);
+//     if (!cardData) {
+//       return res.status(400).json({ msg: "card not found" });
+//     }
+//     if (cardData.user_id == iduser) {
+//       next();
+//     } else {
+//       res.status(401).json({ msg: "you not the biz owner" });
+//     }
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// };
 
 /*
   isBiz = every biz
@@ -28,7 +28,7 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
   isBizOwner = biz owner
 */
 
-const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
+const permissionsMiddleware = (isAdmin) => {
   return (req, res, next) => {
     if (!req.userData) {
       throw new CustomError("must provide userData");
