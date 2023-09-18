@@ -1,10 +1,8 @@
 [
   {
-    "name": {
+    
       "firstName": "Avior",
-      "lastName": "Kasay"
-    },
-    "phone": "0500000000",
+    "lastName": "Kasay",
     "email": "avior@gmail.com",
     "password": "Aa123456!",
     "isAdmin": true
@@ -12,11 +10,9 @@
     
   },
   {
-    "name": {
       "firstName": "Shir",
-      "lastName": "Levi"
-    },
-    "phone": "0500000000",
+      "lastName": "Levi",
+ 
     "email": "shir@gmail.com",
     "password": "Aa123456!",
     "isAdmin": false
@@ -24,11 +20,8 @@
  
   },
   {
-    "name": {
       "firstName": "Ron",
-      "lastName": "Kasay"
-    },
-    "phone": "0500000000",
+      "lastName": "Kasay",
     "email": "ron@gmail.com",
     "password": "Aa123456!",
     "isAdmin": false

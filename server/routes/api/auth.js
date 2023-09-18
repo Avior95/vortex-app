@@ -13,8 +13,6 @@ const { generateToken } = require("../../utils/token/tokenService");
 const CustomError = require("../../utils/CustomError");
 const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 
-const userPermissionsMiddleware = require("../../middleware/adminRegisterOrPromissions");
-
 const authmw = require("../../middleware/authMiddleware");
 
 router.post("/register", async (req, res) => {
@@ -60,7 +58,7 @@ router.post("/login", async (req, res) => {
 router.get(
   "/users",
   authmw,
-  permissionsMiddleware(false, true, false),
+  // permissionsMiddleware(false, true, false),
   async (req, res) => {
     try {
       const allUsers = await usersServiceModel.getAllUsers();
@@ -75,7 +73,7 @@ router.get(
 router.get(
   "/:id",
   authmw,
-  userPermissionsMiddleware(true, true),
+  // userPermissionsMiddleware(true, true),
   async (req, res) => {
     try {
       await idValidation(req.params.id);
@@ -91,7 +89,7 @@ router.get(
 router.put(
   "/:id",
   authmw,
-  userPermissionsMiddleware(true, true),
+  // userPermissionsMiddleware(true, true),
   async (req, res) => {
     try {
       await idValidation(req.params.id);
@@ -113,7 +111,7 @@ router.put(
 router.patch(
   "/:id",
   authmw,
-  userPermissionsMiddleware(true, true),
+  // userPermissionsMiddleware(true, true),
   async (req, res) => {
     try {
       await idValidation(req.params.id);
@@ -135,7 +133,7 @@ router.patch(
 router.delete(
   "/:id",
   authmw,
-  userPermissionsMiddleware(true, true),
+  // userPermissionsMiddleware(true, true),
   async (req, res) => {
     try {
       await idValidation(req.params.id);

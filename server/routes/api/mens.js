@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const menItemsServiceModel = require("../../model/itemsService/menItemsService");
 const itemsValidationService = require("../../validation/itemsValidationService");
-// const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
-// const authmw = require("../../middleware/authMiddleware");
+const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
+const authmw = require("../../middleware/authMiddleware");
 
 router.get("/", async (req, res) => {
   try {
@@ -42,24 +42,21 @@ router.post(
   }
 );
 
-router.put(
-  "/:id",
-  // permissionsMiddleware(true, false, false),
-  async (req, res) => {
-    try {
-      await itemsValidationService.idValidation(req.params.id);
-      await itemsValidationService.createItemValidation(req.body);
-      //normalizeItem
-      const itemFromDB = await menItemsServiceModel.updateItem(
-        req.params.id,
-        req.body
-      );
-      res.json(itemFromDB);
-    } catch (err) {
-      res.status(400).json(err);
-    }
+router.put("/:id", authmw, permissionsMiddleware(true), async (req, res) => {
+  try {
+    s;
+    await itemsValidationService.idValidation(req.params.id);
+    await itemsValidationService.createItemValidation(req.body);
+    //normalizeItem
+    const itemFromDB = await menItemsServiceModel.updateItem(
+      req.params.id,
+      req.body
+    );
+    res.json(itemFromDB);
+  } catch (err) {
+    res.status(400).json(err);
   }
-);
+});
 
 router.delete("/:id", async (req, res) => {
   try {

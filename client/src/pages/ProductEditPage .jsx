@@ -21,7 +21,6 @@ const ProductEditPage = () => {
     },
     subTitle: "",
   });
-  // console.log(formData.image.url);
 
   useEffect(() => {
     axios

@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const womenItemsService = require("../../model/womenItemService/womenItemsService");
 const itemsValidationService = require("../../validation/itemsValidationService");
+const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
+const authmw = require("../../middleware/authMiddleware");
 
 router.get("/", async (req, res) => {
   try {
@@ -40,7 +42,7 @@ router.post(
   }
 );
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authmw, permissionsMiddleware(true), async (req, res) => {
   try {
     await itemsValidationService.idValidation(req.params.id);
     await itemsValidationService.createItemValidation(req.body);
