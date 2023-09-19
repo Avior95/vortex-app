@@ -32,7 +32,7 @@ const pages = [
 
 const authedPages = [{ label: "Sign Out" }];
 
-const PersistentDrawerLeft = () => {
+const PersistentDrawerLeft = ({ canEdit }) => {
   const isLoggedIn = useSelector(
     (bigPieBigState) => bigPieBigState.authSlice.isLoggedIn
   );
@@ -139,20 +139,25 @@ const PersistentDrawerLeft = () => {
           </IconButton>
 
           {cartOpen && <CartComponent closeBtn={closeCart} />}
-          <Link to="/add" style={{ textDecoration: "none" }}>
-            <IconButton
-              color="inherit"
-              aria-label="add"
-              edge="start"
-              sx={{
-                mr: 2,
-                color: "black",
-                display: { xs: "flex", md: "block" },
-              }}
-            >
-              <ControlPointIcon />
-            </IconButton>
-          </Link>
+
+          {canEdit ? (
+            <Link to="/add" style={{ textDecoration: "none" }}>
+              <IconButton
+                color="inherit"
+                aria-label="add"
+                edge="start"
+                sx={{
+                  mr: 2,
+                  color: "black",
+                  display: { xs: "flex", md: "block" },
+                }}
+              >
+                <ControlPointIcon />
+              </IconButton>
+            </Link>
+          ) : (
+            ""
+          )}
         </Box>
       </Toolbar>
 

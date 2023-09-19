@@ -40,7 +40,14 @@ const WomenTees = () => {
   }
 
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh", // Adjust the height as needed
+      }}
+    >
       <Grid container justifyContent="center" alignItems="center">
         {itemsArr.map((item) => (
           <Grid item xs={11} sm={4} md={2} key={item._id}>
