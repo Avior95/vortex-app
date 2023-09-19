@@ -6,29 +6,18 @@ import axios from "axios";
 
 const ProductDetailPage = () => {
   const [itemsArr, setItemsArr] = useState(null);
-  const { productId } = useParams();
+  const { productId, gender } = useParams();
 
   useEffect(() => {
     axios
-      .get("/men/men/" + productId)
+      .get(`/${gender}/${gender}/` + productId)
       .then(({ data }) => {
         setItemsArr(data);
       })
       .catch((err) => {
         console.log("err from axios", err);
       });
-  }, [productId]);
-
-  useEffect(() => {
-    axios
-      .get("/women/women/" + productId)
-      .then(({ data }) => {
-        setItemsArr(data);
-      })
-      .catch((err) => {
-        console.log("err from axios", err);
-      });
-  }, [productId]);
+  }, [productId, gender]);
 
   if (!itemsArr) {
     return <CircularProgress />;

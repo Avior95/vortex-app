@@ -24,8 +24,9 @@ const ItemPageComponent = ({
   gender,
   onDelete,
   onEdit,
+  canEdit,
 }) => {
-  const productDetailURL = `${ROUTES.DETAILPAGE}/${itemId}`;
+  const productDetailURL = `${ROUTES.DETAILPAGE}/${itemId}/${gender}`;
 
   const handleDeleteBtnClick = () => {
     onDelete(itemId);
@@ -60,9 +61,14 @@ const ItemPageComponent = ({
           <Button variant="text" color="primary">
             <ShoppingCartIcon />
           </Button>
-          <Button variant="text" color="primary" onClick={handleEditBtnClick}>
-            <EditIcon />
-          </Button>
+
+          {canEdit ? (
+            <Button variant="text" color="primary" onClick={handleEditBtnClick}>
+              <EditIcon />
+            </Button>
+          ) : (
+            ""
+          )}
           <Button variant="text" color="primary" onClick={handleDeleteBtnClick}>
             <DeleteIcon />
           </Button>

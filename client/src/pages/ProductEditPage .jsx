@@ -42,7 +42,7 @@ const ProductEditPage = () => {
       .catch((err) => {
         console.log("Error fetching product data", err);
       });
-  }, [productId]);
+  }, [productId, gender]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,7 +61,7 @@ const ProductEditPage = () => {
     axios
       .put(`/${gender}/` + productId, formData)
       .then(() => {
-        navigate("/product-detail/" + productId);
+        navigate("/");
       })
       .catch((err) => {
         console.log("Error editing product", err.response.data);

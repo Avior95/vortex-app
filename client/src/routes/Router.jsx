@@ -29,7 +29,7 @@ const Router = () => {
       <Route path={ROUTES.ADDPAGE} element={<ProductAddPage />} />
 
       <Route
-        path={`${ROUTES.DETAILPAGE}/:productId`}
+        path={`${ROUTES.DETAILPAGE}/:productId/:gender`}
         element={<ProductDetailPage />}
       />
       <Route

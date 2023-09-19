@@ -3,10 +3,12 @@ import ItemPageComponent from "../../components/ItemPage/ItemPageComponent";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MenShoes = () => {
   const [itemsArr, setItemsArr] = useState(null);
   const navigate = useNavigate();
+  const payload = useSelector((bigPie) => bigPie.authSlice.payload);
 
   useEffect(() => {
     axios
@@ -49,6 +51,7 @@ const MenShoes = () => {
                 image={item.image.url}
                 itemId={item._id}
                 gender={item.gender}
+                canEdit={payload && payload.isAdmin}
                 onDelete={handleDeleteFromInitialCardsArr}
                 onEdit={handleEditFromInitialItemsArr}
               />
