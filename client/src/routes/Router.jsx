@@ -33,7 +33,7 @@ const Router = () => {
         element={<ProductDetailPage />}
       />
       <Route
-        path={`${ROUTES.EDITPAGE}/:productId`}
+        path={`${ROUTES.EDITPAGE}/:productId/:gender`}
         element={<ProductEditPage />}
       />
 

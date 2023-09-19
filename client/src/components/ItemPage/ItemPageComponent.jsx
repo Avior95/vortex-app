@@ -21,6 +21,7 @@ const ItemPageComponent = ({
   price,
   image,
   itemId,
+  gender,
   onDelete,
   onEdit,
 }) => {
@@ -30,7 +31,7 @@ const ItemPageComponent = ({
     onDelete(itemId);
   };
   const handleEditBtnClick = () => {
-    onEdit(itemId);
+    onEdit(itemId, gender);
   };
 
   return (

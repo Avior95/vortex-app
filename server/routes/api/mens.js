@@ -44,7 +44,6 @@ router.post(
 
 router.put("/:id", authmw, permissionsMiddleware(true), async (req, res) => {
   try {
-    s;
     await itemsValidationService.idValidation(req.params.id);
     await itemsValidationService.createItemValidation(req.body);
     //normalizeItem

@@ -32,8 +32,8 @@ const WomenPants = () => {
       console.log("error when deleting", err.response.data);
     }
   };
-  const handleEditFromInitialItemsArr = (id) => {
-    navigate(`/edit/${id}`);
+  const handleEditFromInitialItemsArr = (id, gender) => {
+    navigate(`/edit/${id}/${gender}`);
   };
 
   return (
@@ -41,6 +41,7 @@ const WomenPants = () => {
       <Grid container justifyContent="center" alignItems="center">
         {itemsArr.map((item) => (
           <Grid item xs={11} sm={4} md={2} key={item._id}>
+            {/* {console.log(item.gender)} */}
             {item.category === "Pants" && (
               <ItemPageComponent
                 price={item.price}
@@ -48,6 +49,7 @@ const WomenPants = () => {
                 subTitle={item.subTitle}
                 image={item.image.url}
                 itemId={item._id}
+                gender={item.gender}
                 onDelete={handleDeleteFromInitialItemsArr}
                 onEdit={handleEditFromInitialItemsArr}
               />

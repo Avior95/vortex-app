@@ -29,8 +29,8 @@ const MenShort = () => {
       console.log("error when deleting", err.response.data);
     }
   };
-  const handleEditFromInitialItemsArr = (id) => {
-    navigate(`/edit/${id}`);
+  const handleEditFromInitialItemsArr = (id, gender) => {
+    navigate(`/edit/${id}/${gender}`);
   };
 
   if (!itemsArr) {
@@ -49,6 +49,7 @@ const MenShort = () => {
                 subTitle={item.subTitle}
                 image={item.image.url}
                 itemId={item._id}
+                gender={item.gender}
                 onDelete={handleDeleteFromInitialCardsArr}
                 onEdit={handleEditFromInitialItemsArr}
               />

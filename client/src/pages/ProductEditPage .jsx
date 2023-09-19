@@ -8,7 +8,7 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 
 const ProductEditPage = () => {
-  const { productId } = useParams();
+  const { productId, gender } = useParams();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -24,29 +24,7 @@ const ProductEditPage = () => {
 
   useEffect(() => {
     axios
-      .get("/men/men/" + productId)
-      .then(({ data }) => {
-        if (data) {
-          setFormData({
-            title: data.title || "",
-            category: data.category || "",
-            price: data.price || "",
-            image: {
-              url: data.image ? data.image.url : "",
-              alt: data.image ? data.image.alt : "",
-            },
-            subTitle: data.subTitle || "",
-          });
-        }
-      })
-      .catch((err) => {
-        console.log("Error fetching product data", err);
-      });
-  }, [productId]);
-
-  useEffect(() => {
-    axios
-      .get("/women/women/" + productId)
+      .get(`/${gender}/${gender}/` + productId)
       .then(({ data }) => {
         if (data) {
           setFormData({
@@ -81,15 +59,7 @@ const ProductEditPage = () => {
     delete formDataWithoutIdsAndCreatedAt.createdAt;
     delete formDataWithoutIdsAndCreatedAt.user_id;
     axios
-      .put("/men/" + productId, formData)
-      .then(() => {
-        navigate("/product-detail/" + productId);
-      })
-      .catch((err) => {
-        console.log("Error editing product", err.response.data);
-      });
-    axios
-      .put("/women/" + productId, formData)
+      .put(`/${gender}/` + productId, formData)
       .then(() => {
         navigate("/product-detail/" + productId);
       })
