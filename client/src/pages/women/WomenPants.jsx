@@ -34,6 +34,13 @@ const WomenPants = () => {
       console.log("error when deleting", err.response.data);
     }
   };
+  const handleCart = async (id) => {
+    try {
+      await axios.patch("/women/" + id);
+    } catch (err) {
+      console.log("error when add to cart", err.response.data);
+    }
+  };
   const handleEditFromInitialItemsArr = (id, gender) => {
     navigate(`/edit/${id}/${gender}`);
   };
@@ -43,7 +50,6 @@ const WomenPants = () => {
       <Grid container justifyContent="center" alignItems="center">
         {itemsArr.map((item) => (
           <Grid item xs={11} sm={4} md={2} key={item._id}>
-            {/* {console.log(item.gender)} */}
             {item.category === "Pants" && (
               <ItemPageComponent
                 price={item.price}
@@ -53,8 +59,10 @@ const WomenPants = () => {
                 itemId={item._id}
                 gender={item.gender}
                 canEdit={payload && payload.isAdmin}
+                canDelete={payload && payload.isAdmin}
                 onDelete={handleDeleteFromInitialItemsArr}
                 onEdit={handleEditFromInitialItemsArr}
+                onCart={handleCart}
               />
             )}
           </Grid>

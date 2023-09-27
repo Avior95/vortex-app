@@ -56,6 +56,22 @@ router.put("/:id", authmw, permissionsMiddleware(true), async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.patch("/:id", authmw, async (req, res) => {
+  try {
+    await itemsValidationService.idValidation(req.params.id);
+    const itemFromDB = await womenItemsService.getCardById(req.params.id);
+    if (itemFromDB.likes.includes(req.userData._id)) {
+      return res.json({ msg: "The card is already liked" });
+    } else {
+      itemFromDB.likes.push(req.userData._id);
+    }
+    await womenItemsService.updateItem(req.params.id, itemFromDB);
+    res.json(itemFromDB);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 router.delete("/:id", async (req, res) => {
   try {
     await itemsValidationService.idValidation(req.params.id);

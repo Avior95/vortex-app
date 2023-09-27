@@ -25,6 +25,8 @@ const ItemPageComponent = ({
   onDelete,
   onEdit,
   canEdit,
+  onCart,
+  canDelete,
 }) => {
   const productDetailURL = `${ROUTES.DETAILPAGE}/${itemId}/${gender}`;
 
@@ -33,6 +35,9 @@ const ItemPageComponent = ({
   };
   const handleEditBtnClick = () => {
     onEdit(itemId, gender);
+  };
+  const handleCartBtnClick = () => {
+    onCart(itemId);
   };
 
   return (
@@ -58,7 +63,7 @@ const ItemPageComponent = ({
           <Typography>${price}</Typography>
         </CardContent>
         <CardActions>
-          <Button variant="text" color="primary">
+          <Button variant="text" color="primary" onClick={handleCartBtnClick}>
             <ShoppingCartIcon />
           </Button>
 
@@ -69,9 +74,17 @@ const ItemPageComponent = ({
           ) : (
             ""
           )}
-          <Button variant="text" color="primary" onClick={handleDeleteBtnClick}>
-            <DeleteIcon />
-          </Button>
+          {canDelete ? (
+            <Button
+              variant="text"
+              color="primary"
+              onClick={handleDeleteBtnClick}
+            >
+              <DeleteIcon />
+            </Button>
+          ) : (
+            ""
+          )}
         </CardActions>
       </Card>
     </Box>

@@ -6,6 +6,8 @@ const createItemSchema = Joi.object({
   gender: Joi.string().min(2).max(256),
   category: Joi.string().min(2).max(256).required(),
   price: Joi.number().min(2).required(),
+  // likes: Joi.array().items(Joi.string().hex().length(24)),
+  likes: Joi.array().items(Joi.string()),
   image: Joi.object().keys({
     url: Joi.string().regex(
       new RegExp(

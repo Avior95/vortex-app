@@ -11,6 +11,7 @@ const womenSchema = new mongoose.Schema({
   subTitle: DEFAULT_STRING_SCHEMA_REQUIRED,
   gender: DEFAULT_STRING_SCHEMA,
   category: DEFAULT_STRING_SCHEMA_REQUIRED,
+  likes: [String],
   price: {
     type: Number,
     required: true,

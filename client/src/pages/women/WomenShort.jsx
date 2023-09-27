@@ -20,7 +20,7 @@ const WomenShort = () => {
         console.log("err from axios", err);
       });
   }, []);
-  const handleDeleteFromInitialCardsArr = async (id) => {
+  const handleDeleteFromInitialItemsArr = async (id) => {
     try {
       await axios.delete("/women/" + id);
       setItemsArr((newItemsArr) =>
@@ -28,6 +28,13 @@ const WomenShort = () => {
       );
     } catch (err) {
       console.log("error when deleting", err.response.data);
+    }
+  };
+  const handleCart = async (id) => {
+    try {
+      await axios.patch("/women/" + id);
+    } catch (err) {
+      console.log("error when add to cart", err.response.data);
     }
   };
   const handleEditFromInitialItemsArr = (id, gender) => {
@@ -52,8 +59,10 @@ const WomenShort = () => {
                 itemId={item._id}
                 gender={item.gender}
                 canEdit={payload && payload.isAdmin}
-                onDelete={handleDeleteFromInitialCardsArr}
+                canDelete={payload && payload.isAdmin}
+                onDelete={handleDeleteFromInitialItemsArr}
                 onEdit={handleEditFromInitialItemsArr}
+                onCart={handleCart}
               />
             )}
           </Grid>

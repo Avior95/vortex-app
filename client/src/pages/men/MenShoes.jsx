@@ -31,6 +31,14 @@ const MenShoes = () => {
       console.log("error when deleting", err.response.data);
     }
   };
+
+  const handleCart = async (id) => {
+    try {
+      await axios.patch("/men/" + id);
+    } catch (err) {
+      console.log("error when add to cart", err.response.data);
+    }
+  };
   const handleEditFromInitialItemsArr = (id, gender) => {
     navigate(`/edit/${id}/${gender}`);
   };
@@ -52,8 +60,10 @@ const MenShoes = () => {
                 itemId={item._id}
                 gender={item.gender}
                 canEdit={payload && payload.isAdmin}
+                canDelete={payload && payload.isAdmin}
                 onDelete={handleDeleteFromInitialCardsArr}
                 onEdit={handleEditFromInitialItemsArr}
+                onCart={handleCart}
               />
             )}
           </Grid>

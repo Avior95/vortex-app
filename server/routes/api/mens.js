@@ -57,6 +57,25 @@ router.put("/:id", authmw, permissionsMiddleware(true), async (req, res) => {
   }
 });
 
+// //  end points(6)   -- DONE--
+router.patch("/:id", authmw, async (req, res) => {
+  try {
+    await itemsValidationService.idValidation(req.params.id);
+    const itemFromDB = await menItemsServiceModel.getCardById(req.params.id);
+    // if (itemFromDB.likes.includes(req.userData._id)) {
+    //   return res.json({ msg: "The card is already liked" });
+    // } else {
+    //   itemFromDB.likes.push(req.userData._id);
+    // }
+    itemFromDB.likes.push(req.userData._id);
+
+    await menItemsServiceModel.updateItem(req.params.id, itemFromDB);
+    res.json(itemFromDB);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     await itemsValidationService.idValidation(req.params.id);

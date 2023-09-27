@@ -21,7 +21,7 @@ const WomenTees = () => {
       });
   }, []);
 
-  const handleDeleteFromInitialCardsArr = async (id) => {
+  const handleDeleteFromInitialItemsArr = async (id) => {
     try {
       await axios.delete("/women/" + id);
       setItemsArr((newItemsArr) =>
@@ -29,6 +29,13 @@ const WomenTees = () => {
       );
     } catch (err) {
       console.log("error when deleting", err.response.data);
+    }
+  };
+  const handleCart = async (id) => {
+    try {
+      await axios.patch("/women/" + id);
+    } catch (err) {
+      console.log("error when add to cart", err.response.data);
     }
   };
   const handleEditFromInitialItemsArr = (id, gender) => {
@@ -53,8 +60,10 @@ const WomenTees = () => {
                 itemId={item._id}
                 gender={item.gender}
                 canEdit={payload && payload.isAdmin}
-                onDelete={handleDeleteFromInitialCardsArr}
+                canDelete={payload && payload.isAdmin}
+                onDelete={handleDeleteFromInitialItemsArr}
                 onEdit={handleEditFromInitialItemsArr}
+                onCart={handleCart}
               />
             )}
           </Grid>
