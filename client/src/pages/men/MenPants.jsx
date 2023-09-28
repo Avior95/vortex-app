@@ -33,7 +33,7 @@ const MenPants = () => {
   };
   const handleCart = async (id) => {
     try {
-      await axios.patch("/men/" + id);
+      await axios.patch("/men/" + id).then(({ data }) => {});
     } catch (err) {
       console.log("error when add to cart", err.response.data);
     }
