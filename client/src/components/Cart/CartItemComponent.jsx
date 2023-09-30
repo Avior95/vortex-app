@@ -60,13 +60,7 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
           </Button>
         </div>
       </div>
-      <img
-        style={imageStyle}
-        src={
-          "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/c5382c5b_de85.png"
-        }
-        alt={item.title}
-      />
+      <img style={imageStyle} src={item.image.url} alt={item.title} />
       <DeleteOutlineIcon />
     </Box>
   );

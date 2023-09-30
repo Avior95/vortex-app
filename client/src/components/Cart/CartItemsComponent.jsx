@@ -1,28 +1,46 @@
 import { Drawer, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CartItemComponent from "./CartItemComponent";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const cartItems = [
-  {
-    id: 1,
-    URL: "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/c5382c5b_de85.png",
-    title: "The Linen Short-Sleeve Standard Fit Shirt",
-    itemColor: "Brazilian Sand",
-    price: "28",
-  },
-  {
-    id: 2,
-    URL: "https://media.everlane.com/image/upload/c_scale,dpr_1.0,f_auto,q_auto,w_auto/c_limit,w_1700/v1/i/c5382c5b_de85.png",
-    title: "The Linen Short-Sleeve Standard Fit Shirt",
-    itemColor: "Brazilian Sand",
-    price: "28",
-  },
-];
 const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
-  const calculateTotal = (items) =>
-    items.reduce((acc, item) => acc + item.amount * item.price, 0);
+  const payload = useSelector((bigPie) => bigPie.authSlice.payload);
+  const [itemsArr, setItemsArr] = useState(null);
+  const [filteredItems, setFilteredItems] = useState([]);
 
-  // All the CRUD activities related to the shopping cart will take place here.
+  useEffect(() => {
+    axios
+      .get("/men")
+      .then(({ data }) => {
+        setItemsArr(data);
+      })
+      .catch((err) => {
+        console.log("err from axios", err);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get("/women")
+      .then(({ data }) => {
+        setItemsArr(data);
+      })
+      .catch((err) => {
+        console.log("err from axios", err);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Filter the items based on the condition
+    if (itemsArr && payload) {
+      const filtered = itemsArr.filter((item) =>
+        item.likes.includes(payload._id)
+      );
+      setFilteredItems(filtered);
+    }
+  }, [itemsArr, payload]);
+
   return (
     <Drawer open={true} anchor="right" PaperProps={{ sx: { width: 300 } }}>
       <div
@@ -37,16 +55,15 @@ const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
           <CloseIcon />
         </IconButton>
       </div>
-      {cartItems.length === 0 ? <p>No items in cart.</p> : null}
-      {cartItems.map((item) => (
+      {filteredItems.length === 0 ? <p>No items in cart.</p> : null}
+      {filteredItems.map((item) => (
         <CartItemComponent
-          key={item.id}
+          key={item._id}
           item={item}
           // addToCart={addToCart}
           // removeFromCart={removeFromCart}
         />
       ))}
-      <h2>Total: ${calculateTotal(cartItems).toFixed(2)}</h2>
     </Drawer>
   );
 };

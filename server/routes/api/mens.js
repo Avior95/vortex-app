@@ -62,6 +62,7 @@ router.patch("/:id", authmw, async (req, res) => {
   try {
     await itemsValidationService.idValidation(req.params.id);
     const itemFromDB = await menItemsServiceModel.getItemById(req.params.id);
+    console.log(itemFromDB);
     // if (itemFromDB.likes.includes(req.userData._id)) {
     //   return res.json({ msg: "The card is already liked" });
     // } else {
