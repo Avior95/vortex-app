@@ -31,9 +31,9 @@ const WomenTees = () => {
       console.log("error when deleting", err.response.data);
     }
   };
-  const handleCart = async (id) => {
+  const handleCart = async (id, gender) => {
     try {
-      await axios.patch("/women/" + id);
+      await axios.patch(`/${gender}/` + id).then(({ data }) => {});
     } catch (err) {
       console.log("error when add to cart", err.response.data);
     }

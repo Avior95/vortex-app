@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import AppNav from "./components/NavBar/AppNav";
-// import FooterComponent from "./components/Footer/Footer";
+import FooterComponent from "./components/Footer/Footer";
 import Router from "./routes/Router";
 import useLoggedIn from "./hooks/useLoggedIn";
 import { useSelector } from "react-redux";
@@ -26,7 +26,9 @@ function App() {
       <main>
         <Router />
       </main>
-      <footer>{/* <FooterComponent /> */}</footer>
+      <footer>
+        <FooterComponent />
+      </footer>
     </div>
   );
 }

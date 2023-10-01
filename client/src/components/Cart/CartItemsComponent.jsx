@@ -4,8 +4,9 @@ import CartItemComponent from "./CartItemComponent";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
+const CartItemsComponent = ({ closeBtn }) => {
   const payload = useSelector((bigPie) => bigPie.authSlice.payload);
   const [itemsArr, setItemsArr] = useState(null);
   const [filteredItems, setFilteredItems] = useState([]);
@@ -32,7 +33,6 @@ const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
   }, []);
 
   useEffect(() => {
-    // Filter the items based on the condition
     if (itemsArr && payload) {
       const filtered = itemsArr.filter((item) =>
         item.likes.includes(payload._id)
@@ -41,6 +41,10 @@ const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
     }
   }, [itemsArr, payload]);
 
+  const handleDeleteFromCart = (itemId) => {
+    const updatedCart = filteredItems.filter((item) => item._id !== itemId);
+    setFilteredItems(updatedCart);
+  };
   return (
     <Drawer open={true} anchor="right" PaperProps={{ sx: { width: 300 } }}>
       <div
@@ -60,8 +64,7 @@ const CartItemsComponent = ({ closeBtn, addToCart, removeFromCart }) => {
         <CartItemComponent
           key={item._id}
           item={item}
-          // addToCart={addToCart}
-          // removeFromCart={removeFromCart}
+          onDeleteFromCart={handleDeleteFromCart}
         />
       ))}
     </Drawer>

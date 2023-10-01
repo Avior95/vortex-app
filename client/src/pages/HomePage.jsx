@@ -1,8 +1,7 @@
 import { Box, CircularProgress, Grid } from "@mui/material";
 import MainImageComponent from "../components/HomePage/MainImageComponent";
 import ProductBtnComponent from "../components/HomePage/ProductBtnComponent";
-import SliderComponent from "../components/Sliders/SliderComponent";
-import sliderItems from "../components/Sliders/slider.json";
+
 import Typography from "@mui/material/Typography";
 import InformativeLogosData from "../initialData/LogosData.json";
 import { useEffect, useState } from "react";
@@ -59,9 +58,6 @@ const HomePage = () => {
           </Grid>
         ))}
       </Grid>
-
-      {/* Slider */}
-      <SliderComponent slides={sliderItems} />
 
       {/* Informative Logos */}
       <Grid container spacing={{ xs: 4, md: 3 }} sx={{ marginTop: 30 }}>

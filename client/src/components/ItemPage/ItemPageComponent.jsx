@@ -37,7 +37,7 @@ const ItemPageComponent = ({
     onEdit(itemId, gender);
   };
   const handleCartBtnClick = () => {
-    onCart(itemId);
+    onCart(itemId, gender);
   };
 
   return (

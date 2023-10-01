@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 const cartItemStyle = {
@@ -29,7 +29,7 @@ const imageStyle = {
   marginLeft: "40px",
 };
 
-const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
+const CartItemComponent = ({ item, onDeleteFromCart }) => {
   return (
     <Box style={cartItemStyle}>
       <div>
@@ -44,7 +44,6 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
             size="small"
             disableElevation
             variant="contained"
-            // onClick={() => removeFromCart(item.id)}
           >
             -
           </Button>
@@ -54,10 +53,12 @@ const CartItemComponent = ({ item, addToCart, removeFromCart }) => {
             size="small"
             disableElevation
             variant="contained"
-            // onClick={() => addToCart(item)}
           >
             +
           </Button>
+          <IconButton onClick={() => onDeleteFromCart(item._id)}>
+            <DeleteOutlineIcon />
+          </IconButton>
         </div>
       </div>
       <img style={imageStyle} src={item.image.url} alt={item.title} />

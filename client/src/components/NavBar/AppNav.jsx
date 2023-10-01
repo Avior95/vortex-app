@@ -55,10 +55,7 @@ const PersistentDrawerLeft = ({ canEdit }) => {
   const handleDialogClose = () => {
     setDialogOpen(false);
   };
-  // const handleButtonClick = (page) => {
-  //   setSelectedPage(page);
-  //   setDialogOpen(true);
-  // };
+
   const handleButtonClick = (page) => {
     setSelectedPage(page);
     if (page.label === "Sign In") {
